@@ -27,8 +27,8 @@ Delete a Goal from list
 - Exercises in using different styling techniques
 such as:
 
-- Inline CSS styles
-- Toggling css classes
+- Dynamic Inline CSS styles
+- Toggling CSS classes
 - Styled Components
 - Styled Components using dynamic props
 - CSS Modules
