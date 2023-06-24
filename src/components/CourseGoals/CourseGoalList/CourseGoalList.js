@@ -6,6 +6,7 @@ import './CourseGoalList.css';
 const CourseGoalList = (props) => {
   // map through courseGoals calling
   // CourseGoalItem to create li item for each goal
+  // pass deleteItemHandler(onDeleteItem) from App Component
   return (
     <ul className="goal-list">
       {props.items.map((goal) => (

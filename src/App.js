@@ -5,7 +5,7 @@ import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
 import './App.css';
 
 const App = () => {
-  // Initialize State for courseGoals array
+  // Initialize State for courseGoals array with mock data
   const [courseGoals, setCourseGoals] = useState([
     { text: 'Do all exercises!', id: 'g1' },
     { text: 'Finish the course!', id: 'g2' },
@@ -23,6 +23,7 @@ const App = () => {
   };
 
   // added as a handler to onClick event on li goal-item in CourseGoalItem
+  // filter out deleted goal
   const deleteItemHandler = (goalId) => {
     setCourseGoals((prevGoals) => {
       const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId);
@@ -35,7 +36,7 @@ const App = () => {
     <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
   );
 
-  // if courseGoals array is not empty call CourseGoalList
+  // if courseGoals array is not empty call CourseGoalLis
   if (courseGoals.length > 0) {
     content = (
       <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
@@ -47,16 +48,7 @@ const App = () => {
       <section id="goal-form">
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
-      <section id="goals">
-        {content}
-        {/* {courseGoals.length > 0 && (
-          <CourseGoalList
-            items={courseGoals}
-            onDeleteItem={deleteItemHandler}
-          />
-        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-        } */}
-      </section>
+      <section id="goals">{content}</section>
     </div>
   );
 };
